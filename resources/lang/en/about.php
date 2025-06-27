@@ -2,5 +2,7 @@
 
 return [
     'title' => 'About Me',
-    'description' => 'I’m a systems engineer passionate about technology, with experience in web and mobile development and backend solutions. I’m always learning and building useful projects.',
+    'description_1' => 'I\'m Andrés Felipe Joya Buitrago, a Systems Engineer from Bucaramanga, Colombia.',
+    'description_2' => 'Passionate about web and mobile development, experienced in Laravel, PHP, Java, Kotlin, and more.',
+    'description_3' => 'I love learning, collaborating with others, and building solutions that bring real value.',
 ];

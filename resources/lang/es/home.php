@@ -2,8 +2,7 @@
 
 return [
     'title' => 'Bienvenido a mi portafolio',
-    'subtitle' => 'Desarrollador Web Fullstack desde Bucaramanga, Colombia',
-    'contact_button' => 'Contáctame',
+    'subtitle' => 'Desarrollador Web Fullstack',
     'cv_button' => 'Descargar CV',
-    'about_button' => 'Sobre mí',
+    'about_button' => 'Más sobre mí',
 ];
