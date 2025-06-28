@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 
 class PortafolioController extends Controller
 {
-    public function index()
+    public function home()
     {
         return view('home');
     }
 
+    public function portfolio()
+    {
+        return view('portfolio');
+    }
     public function sendContact(Request $request)
     {
         // Validar

@@ -2,8 +2,12 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
-    <title>Andrés Joya - @yield('title')</title>
+    <title>Andrés Felipe Joya Buitrago</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="{{ asset('images/Logo.png') }}" type="image/png">
+
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -49,6 +53,17 @@
             position: relative;
             z-index: 1;
         }
+        section#hero {
+            background: linear-gradient(145deg, #1f1c2c, #2a0845);
+            padding: 100px 0;
+        }
+
+        img.rounded-circle {
+            border: 4px solid #fff;
+            object-fit: cover;
+            object-position: center;
+        }
+
 
         #particles-js {
             z-index: 0;
@@ -58,6 +73,18 @@
             padding-top: 60px;
             padding-bottom: 60px;
         }
+        .nav-link {
+            transition: all 0.3s ease;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(108, 99, 255, 0.2); /* color semitransparente */
+            color: #6c63ff !important; /* color principal */
+            transform: translateX(5px); /* efecto de desplazamiento sutil */
+        }
+
         .nested-swiper .swiper-slide {
             display: flex;
             justify-content: center;
@@ -74,6 +101,56 @@
             margin-right: auto;
             object-fit: contain;
         }
+        section.section-glass {
+            background: rgba(255, 255, 255, 0.05); /* blanco muy transparente */
+            border-radius: 1rem;
+            backdrop-filter: blur(8px); /* difuminado de fondo tipo "glassmorphism" */
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+            padding: 60px 40px;
+            margin-bottom: 60px;
+            color: white;
+        }
+        .skill-card {
+            background-color: rgba(255, 255, 255, 0.06);
+            border-radius: 15px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .project-card {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .nested-swiper img {
+            max-height: 250px;
+            object-fit: contain;
+            width: 100%;
+            margin: auto;
+            border-radius: 10px;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
     </style>
 </head>
 <body>
@@ -82,29 +159,54 @@
 <div id="particles-js"></div>
 
 <!-- Sidebar -->
-<nav class="position-fixed top-0 start-0 p-3 bg-dark text-white h-100 d-flex flex-column justify-content-between" style="width: 180px; z-index: 10;">
+<nav class="position-fixed top-0 start-0 p-3 text-white d-flex flex-column justify-content-between shadow-lg"
+     style="width: 300px; height: 100vh; z-index: 10; border-radius: 1rem; background: rgba(33, 37, 41, 0.85); backdrop-filter: blur(8px);">
 
-    <!-- LOGO centrado con marco -->
+    <!-- Logo -->
     <div class="text-center">
-        <a href="#hero">
+        <a href="{{ route('home') }}">
             <img src="{{ asset('images/logo.png') }}" alt="Logo de Andrés Joya"
                 class="rounded-circle border border-3 shadow mb-3"
                 style="max-width: 100px; border-color: #6c63ff;">
         </a>
     </div>
 
-    <!-- Navegación -->
-    <ul class="nav flex-column text-center">
-        <li class="nav-item"><a href="#hero" class="nav-link text-white">{{ __('nav.home') }}</a></li>
-        <li class="nav-item"><a href="#about" class="nav-link text-white">{{ __('nav.about') }}</a></li>
-        <li class="nav-item"><a href="#skills" class="nav-link text-white">{{ __('nav.skills') }}</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link text-white">{{ __('nav.projects') }}</a></li>
-        <li class="nav-item"><a href="#services" class="nav-link text-white">{{ __('nav.services') }}</a></li>
-        <li class="nav-item"><a href="#contact" class="nav-link text-white">{{ __('nav.contact') }}</a></li>
+    <!-- Navegación con íconos -->
+    <ul class="nav flex-column text-start px-2">
+        <li class="nav-item mb-2">
+            <a href="#about" class="nav-link text-white d-flex align-items-center gap-2">
+                <i class="bi bi-person-circle"></i> {{ __('nav.about') }}
+            </a>
+        </li>
+        <li class="nav-item mb-2">
+            <a href="#skills" class="nav-link text-white d-flex align-items-center gap-2">
+                <i class="bi bi-tools"></i> {{ __('nav.skills') }}
+            </a>
+        </li>
+        <li class="nav-item mb-2">
+            <a href="#projects" class="nav-link text-white d-flex align-items-center gap-2">
+                <i class="bi bi-folder2-open"></i> {{ __('nav.projects') }}
+            </a>
+        </li>
+        <li class="nav-item mb-2">
+            <a href="#services" class="nav-link text-white d-flex align-items-center gap-2">
+                <i class="bi bi-briefcase-fill"></i> {{ __('nav.services') }}
+            </a>
+        </li>
+        <li class="nav-item mb-2">
+            <a href="#contact" class="nav-link text-white d-flex align-items-center gap-2">
+                <i class="bi bi-envelope"></i> {{ __('nav.contact') }}
+            </a>
+        </li>
+        <li class="nav-item mb-2">
+            <a href="{{ route('home') }}" class="nav-link text-white d-flex align-items-center gap-2">
+                <i class="bi bi-house-door-fill"></i> {{ __('nav.home') }}
+            </a>
+        </li>
     </ul>
 
-    <!-- Selector de idioma -->
-    <div class="text-center">
+    <!-- Idioma -->
+    <div class="text-center px-2">
         <hr class="text-white">
         <div class="dropdown">
             <button class="btn btn-outline-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
@@ -118,6 +220,7 @@
     </div>
 
 </nav>
+
 
 
 

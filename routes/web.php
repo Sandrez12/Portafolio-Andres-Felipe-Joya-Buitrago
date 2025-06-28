@@ -6,10 +6,15 @@ use App\Http\Controllers\PortafolioController;
 use App\Http\Controllers\ContactController;
 
 // Página principal (home)
-Route::get('/', [PortafolioController::class, 'index'])->name('home');
+Route::get('/', [PortafolioController::class, 'home'])->name('home');
+
+// Ruta para la sección de portafolio
+Route::get('/portafolio', [PortafolioController::class, 'portfolio'])->name('portfolio');
 
 // Ruta para enviar el formulario de contacto
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+Route::post('/contact/send', [App\Http\Controllers\ContactController::class, 'send'])->name('contact.send');
+
 
 // Cambio de idioma
 Route::get('/lang/{lang}', function ($lang) {
@@ -21,11 +26,11 @@ Route::get('/lang/{lang}', function ($lang) {
 })->name('lang.switch');
 
 // Ruta de prueba para verificar correo
-Route::get('/prueba-correo', function () {
-    Mail::raw('Este es un correo de prueba desde Laravel.', function ($message) {
+Route::get('/test-mail', function () {
+    Mail::raw('Este es un correo de prueba enviado desde Laravel.', function ($message) {
         $message->to('joya.andres23@gmail.com')
-                ->subject('Correo de prueba');
+                ->subject('📩 Prueba de correo desde Laravel');
     });
 
-    return 'Correo enviado correctamente.';
+    return '✅ Correo enviado con éxito (si la configuración es correcta)';
 });

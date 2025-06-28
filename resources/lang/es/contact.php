@@ -1,9 +1,10 @@
 <?php
 
 return [
-    'title'   => 'Contáctame',
-    'name'    => 'Nombre',
-    'email'   => 'Correo electrónico',
+    'title' => 'Contacto',
+    'name' => 'Nombre',
+    'email' => 'Correo electrónico',
+    'subject' => 'Asunto',
     'message' => 'Mensaje',
-    'send'    => 'Enviar mensaje',
+    'send_button' => 'Enviar Mensaje',
 ];
