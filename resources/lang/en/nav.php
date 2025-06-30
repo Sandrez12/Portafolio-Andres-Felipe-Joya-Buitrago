@@ -7,5 +7,5 @@ return [
     'projects' => 'Projects',
     'services' => 'Services',
     'contact' => 'Contact',
-    'home' => 'Volver a inicio',
+    'home' => 'Back to Home',
 ];

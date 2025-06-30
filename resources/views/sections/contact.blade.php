@@ -1,35 +1,35 @@
 <section id="contact" class="section-glass container text-white">
     <div class="container" data-aos="fade-up">
         <div class="project-card rounded p-4 shadow text-center mx-auto" style="max-width: 700px;">
-        <h2 class="text-center mb-4">Más sobre mí</h2>
+            <h2 class="text-center mb-4">{{ __('contact.more_about_title') }}</h2>
             <p class="fs-5">
-                Estoy interesado en oportunidades de trabajo en desarrollo de software, backend, inteligencia artificial y ciberseguridad. <br>
-                Me encanta aprender nuevas tecnologías y resolver problemas reales con soluciones eficientes y seguras.
+                {{ __('contact.more_about_description') }}
             </p>
 
             <div class="mt-4 d-flex flex-column align-items-center gap-3">
                 <div><i class="fas fa-envelope text-info me-2"></i> joya.andres23@gmail.com</div>
                 <div><i class="fas fa-phone text-success me-2"></i> +57 3153949836</div>
-                <div><i class="fas fa-code text-warning me-2"></i> Desarrollo Frontend, Backend, IA, Videojuegos</div>
+                <div><i class="fas fa-code text-warning me-2"></i> {{ __('contact.areas') }}</div>
             </div>
-            <br>
-            <br>
-            <h2 class="text-center mb-4">Contáctame</h2>
-            <p class="text-center mb-5">¿Tienes alguna idea, propuesta o quieres trabajar conmigo? Escríbeme.</p>
+
+            <br><br>
+
+            <h2 class="text-center mb-4">{{ __('contact.contact_title') }}</h2>
+            <p class="text-center mb-5">{{ __('contact.contact_description') }}</p>
 
             <form action="https://formspree.io/f/mwkzvxyz" method="POST" class="project-card p-4 rounded shadow mx-auto" style="max-width: 600px;">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nombre</label>
+                    <label for="name" class="form-label">{{ __('contact.name') }}</label>
                     <input type="text" name="name" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="email" class="form-label">Correo</label>
+                    <label for="email" class="form-label">{{ __('contact.email') }}</label>
                     <input type="email" name="_replyto" class="form-control" required>
                 </div>
 
                 <div class="mb-3">
-                    <label for="message" class="form-label">Mensaje</label>
+                    <label for="message" class="form-label">{{ __('contact.message') }}</label>
                     <textarea name="message" rows="5" class="form-control" required></textarea>
                 </div>
 
@@ -37,7 +37,7 @@
                 <input type="hidden" name="_subject" value="Nuevo mensaje del portafolio">
 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-outline-light px-4">Enviar Mensaje</button>
+                    <button type="submit" class="btn btn-outline-light px-4">{{ __('contact.send_button') }}</button>
                 </div>
             </form>
 
@@ -49,4 +49,3 @@
         </div>
     </div>
 </section>
-

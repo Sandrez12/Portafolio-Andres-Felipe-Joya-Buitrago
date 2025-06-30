@@ -7,8 +7,6 @@
 
     <link rel="icon" href="{{ asset('images/Logo.png') }}" type="image/png">
 
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- CDN -->
@@ -259,7 +257,41 @@
             <!-- Mismo contenido del sidebar, adaptado si es necesario -->
             <ul class="nav flex-column">
                 <li class="nav-item mb-2">
-                    <a href="#about" class="nav-link text-white"><i class="bi bi-person-circle"></i> {{ __('nav.about') }}</a>
+                    <a href="{{ route('home') }}" class="nav-link text-white d-flex align-items-center gap-2">
+                        <i class="bi bi-house-door-fill"></i> {{ __('nav.home') }}
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#about" class="nav-link text-white d-flex align-items-center gap-2">
+                        <i class="bi bi-person-circle"></i> {{ __('nav.about') }}
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#skills" class="nav-link text-white d-flex align-items-center gap-2">
+                        <i class="bi bi-tools"></i> {{ __('nav.skills') }}
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#education" class="nav-link text-white">
+                        <i class="bi bi-mortarboard-fill me-2"></i>{{ __('nav.education') }}
+                    </a>
+                </li>
+
+                <li class="nav-item mb-2">
+                    <a href="#projects" class="nav-link text-white d-flex align-items-center gap-2">
+                        <i class="bi bi-folder2-open"></i> {{ __('nav.projects') }}
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#services" class="nav-link text-white d-flex align-items-center gap-2">
+                        <i class="bi bi-briefcase-fill"></i> {{ __('nav.services') }}
+                    </a>
+                </li>
+                <li class="nav-item mb-2">
+                    <a href="#contact" class="nav-link text-white d-flex align-items-center gap-2">
+                        <i class="bi bi-envelope"></i> {{ __('nav.contact') }}
+                    </a>
                 </li>
                 <!-- ... etc ... -->
             </ul>
