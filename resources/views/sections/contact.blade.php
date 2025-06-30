@@ -17,7 +17,7 @@
             <h2 class="text-center mb-4">{{ __('contact.contact_title') }}</h2>
             <p class="text-center mb-5">{{ __('contact.contact_description') }}</p>
 
-            <form action="https://formspree.io/f/mwkzvxyz" method="POST" class="project-card p-4 rounded shadow mx-auto" style="max-width: 600px;">
+            <form action="https://formspree.io/f/mrbkjkpp" method="POST" class="project-card p-4 rounded shadow mx-auto" style="max-width: 600px;">
                 <div class="mb-3">
                     <label for="name" class="form-label">{{ __('contact.name') }}</label>
                     <input type="text" name="name" class="form-control" required>
