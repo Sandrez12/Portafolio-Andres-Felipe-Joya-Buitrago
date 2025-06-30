@@ -23,6 +23,7 @@ Route::get('/lang/{lang}', function ($lang) {
     return redirect()->back();
 })->name('lang.switch');
 
+
 // Ruta de prueba para verificar correo
 Route::get('/test-mail', function () {
     Mail::raw('Este es un correo de prueba enviado desde Laravel.', function ($message) {
