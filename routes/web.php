@@ -15,10 +15,8 @@ Route::get('/portafolio', [PortafolioController::class, 'portfolio'])->name('por
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 Route::post('/contact/send', [App\Http\Controllers\ContactController::class, 'send'])->name('contact.send');
 
-
-// Cambio de idioma
 Route::get('/lang/{lang}', function ($lang) {
-    if (in_array($lang, ['es', 'en'])) {
+    if (in_array($lang, ['en', 'es'])) {
         session(['locale' => $lang]);
         app()->setLocale($lang);
     }

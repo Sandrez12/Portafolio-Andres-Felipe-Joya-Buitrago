@@ -9,6 +9,9 @@
     {{-- Habilidades --}}
     @include('sections.skills')
 
+    {{-- Educacion --}}
+    @include('sections.education')
+
     {{-- Proyectos --}}
     @include('sections.projects')
 

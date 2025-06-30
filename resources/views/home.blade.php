@@ -108,7 +108,7 @@
 <div class="content-wrapper">
     <section id="hero" class="d-flex align-items-center min-vh-100 text-light text-center position-relative">
         <div class="container" data-aos="fade-up">
-            <div class="glass-box mx-auto" style="max-width: 600px;">
+            <div class="glass-box mx-auto" style="max-width: 1000px;">
                 <img src="{{ asset('images/FotodePerfil.jpg') }}" alt="Foto de Perfil" class="rounded-circle shadow mb-4" width="180">
 
                 <h1 class="display-4 fw-bold mb-3">

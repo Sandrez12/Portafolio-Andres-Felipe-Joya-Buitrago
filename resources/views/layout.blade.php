@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
     <!-- CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -27,7 +29,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         body {
@@ -151,81 +154,127 @@
         .service-card:hover {
             transform: translateY(-5px);
         }
+        #sidebar-wrapper {
+            transition: transform 0.3s ease;
+        }
     </style>
 </head>
 <body>
+
+<button id="toggle-sidebar" class="btn btn-light position-fixed top-0 start-0 m-2 d-none d-md-block" style="z-index: 1060;">
+    <i class="bi bi-list fs-3 text-dark"></i>
+</button>
 
 <!-- Partículas -->
 <div id="particles-js"></div>
 
 <!-- Sidebar -->
-<nav class="position-fixed top-0 start-0 p-3 text-white d-flex flex-column justify-content-between shadow-lg"
-     style="width: 300px; height: 100vh; z-index: 10; border-radius: 1rem; background: rgba(33, 37, 41, 0.85); backdrop-filter: blur(8px);">
+<nav  id="sidebar-wrapper" class="d-none d-md-flex position-fixed top-0 start-0 p-3 text-white flex-column justify-content-between shadow-lg"
+     style="width: 300px; height: 100vh; z-index: 1050; border-radius: 1rem; background: rgba(33, 37, 41, 0.85); backdrop-filter: blur(8px);">
 
-    <!-- Logo -->
-    <div class="text-center">
-        <a href="{{ route('home') }}">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo de Andrés Joya"
-                class="rounded-circle border border-3 shadow mb-3"
-                style="max-width: 100px; border-color: #6c63ff;">
-        </a>
-    </div>
+    <div id="sidebar-wrapper" class="d-flex flex-column position-fixed top-0 start-0 p-3 text-white shadow-lg"
+     style="width: 300px; height: 100vh; z-index: 10; border-radius: 1rem; background: rgba(33, 37, 41, 0.85); backdrop-filter: blur(8px); transition: transform 0.3s ease;">
 
-    <!-- Navegación con íconos -->
-    <ul class="nav flex-column text-start px-2">
-        <li class="nav-item mb-2">
-            <a href="#about" class="nav-link text-white d-flex align-items-center gap-2">
-                <i class="bi bi-person-circle"></i> {{ __('nav.about') }}
+        <!-- Logo -->
+        <div class="text-center">
+            <a href="{{ route('home') }}">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo de Andrés Joya"
+                    class="rounded-circle border border-3 shadow mb-3"
+                    style="max-width: 100px; border-color: #6c63ff;">
             </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="#skills" class="nav-link text-white d-flex align-items-center gap-2">
-                <i class="bi bi-tools"></i> {{ __('nav.skills') }}
-            </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="#projects" class="nav-link text-white d-flex align-items-center gap-2">
-                <i class="bi bi-folder2-open"></i> {{ __('nav.projects') }}
-            </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="#services" class="nav-link text-white d-flex align-items-center gap-2">
-                <i class="bi bi-briefcase-fill"></i> {{ __('nav.services') }}
-            </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="#contact" class="nav-link text-white d-flex align-items-center gap-2">
-                <i class="bi bi-envelope"></i> {{ __('nav.contact') }}
-            </a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="{{ route('home') }}" class="nav-link text-white d-flex align-items-center gap-2">
-                <i class="bi bi-house-door-fill"></i> {{ __('nav.home') }}
-            </a>
-        </li>
-    </ul>
+        </div>
 
-    <!-- Idioma -->
-    <div class="text-center px-2">
-        <hr class="text-white">
-        <div class="dropdown">
-            <button class="btn btn-outline-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
-                🌐 {{ strtoupper(app()->getLocale()) }}
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{{ route('lang.switch', 'es') }}">🇪🇸 Español</a></li>
-                <li><a class="dropdown-item" href="{{ route('lang.switch', 'en') }}">🇺🇸 English</a></li>
+        <!-- Navegación con íconos -->
+        <ul class="nav flex-column text-start px-2">
+            <li class="nav-item mb-2">
+                <a href="{{ route('home') }}" class="nav-link text-white d-flex align-items-center gap-2">
+                    <i class="bi bi-house-door-fill"></i> {{ __('nav.home') }}
+                </a>
+            </li>
+            <li class="nav-item mb-2">
+                <a href="#about" class="nav-link text-white d-flex align-items-center gap-2">
+                    <i class="bi bi-person-circle"></i> {{ __('nav.about') }}
+                </a>
+            </li>
+            <li class="nav-item mb-2">
+                <a href="#skills" class="nav-link text-white d-flex align-items-center gap-2">
+                    <i class="bi bi-tools"></i> {{ __('nav.skills') }}
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#education" class="nav-link text-white">
+                    <i class="bi bi-mortarboard-fill me-2"></i>{{ __('nav.education') }}
+                </a>
+            </li>
+
+            <li class="nav-item mb-2">
+                <a href="#projects" class="nav-link text-white d-flex align-items-center gap-2">
+                    <i class="bi bi-folder2-open"></i> {{ __('nav.projects') }}
+                </a>
+            </li>
+            <li class="nav-item mb-2">
+                <a href="#services" class="nav-link text-white d-flex align-items-center gap-2">
+                    <i class="bi bi-briefcase-fill"></i> {{ __('nav.services') }}
+                </a>
+            </li>
+            <li class="nav-item mb-2">
+                <a href="#contact" class="nav-link text-white d-flex align-items-center gap-2">
+                    <i class="bi bi-envelope"></i> {{ __('nav.contact') }}
+                </a>
+            </li>
+        </ul>
+
+        <!-- Idioma -->
+        <div class="text-center px-2">
+            <hr class="text-white">
+            <div class="dropdown">
+                <button class="btn btn-outline-light dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+                    🌐 {{ strtoupper(app()->getLocale()) }}
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{{ route('lang.switch', 'es') }}">🇪🇸 Español</a></li>
+                    <li><a class="dropdown-item" href="{{ route('lang.switch', 'en') }}">🇺🇸 English</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around mt-3">
+            <a href="https://github.com/Sandrez12" target="_blank" class="text-white fs-4 me-3">
+                <i class="devicon-github-original"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/andres-joya-69a552357/" target="_blank" class="text-white fs-4">
+                <i class="bi bi-linkedin"></i>
+            </a>
+        </div>
+    </div>    
+</nav>
+
+    <!-- Sidebar móvil (offcanvas) -->
+    <div class="offcanvas offcanvas-start text-bg-dark d-md-none" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="mobileSidebarLabel">Menú</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Mismo contenido del sidebar, adaptado si es necesario -->
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2">
+                    <a href="#about" class="nav-link text-white"><i class="bi bi-person-circle"></i> {{ __('nav.about') }}</a>
+                </li>
+                <!-- ... etc ... -->
             </ul>
         </div>
     </div>
 
-</nav>
-
-
-
+<!-- Botón menú solo visible en móviles -->
+<button class="btn btn-outline-light d-md-none position-fixed top-0 start-0 m-2 z-3" 
+        type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" 
+        aria-controls="mobileSidebar">
+    <i class="bi bi-list fs-3"></i>
+</button>
 
 <!-- Contenido -->
-<main class="content-wrapper" style="margin-left: 180px;">
+<main id="main-content" class="content-wrapper" style="margin-left: 300px; transition: margin 0.3s ease;">
     @yield('content')
 </main>
 
@@ -275,7 +324,24 @@
             },
         });
     });
+        const toggleBtn = document.getElementById('toggle-sidebar');
+    const sidebar = document.getElementById('sidebar-wrapper');
+    const mainContent = document.getElementById('main-content');
+
+    let sidebarVisible = true;
+
+    toggleBtn.addEventListener('click', () => {
+        if (sidebarVisible) {
+            sidebar.style.transform = 'translateX(-100%)';
+            mainContent.style.marginLeft = '0';
+        } else {
+            sidebar.style.transform = 'translateX(0)';
+            mainContent.style.marginLeft = '300px';
+        }
+        sidebarVisible = !sidebarVisible;
+    });
 </script>
+
 
 <!-- GLightbox JS -->
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
@@ -284,6 +350,18 @@
         selector: '.glightbox'
     });
 </script>
+
+<footer class="text-center text-light py-3 mt-5">
+    <small>
+        © {{ date('Y') }} Andrés Felipe Joya Buitrago —
+        <a href="https://github.com/Sandrez12" target="_blank" class="text-decoration-none text-light">
+            GitHub
+        </a> | 
+        <a href="https://www.linkedin.com/in/andres-joya-69a552357/" target="_blank" class="text-decoration-none text-light">
+            LinkedIn
+        </a>
+    </small>
+</footer>
 
 </body>
 </html>
