@@ -2,4 +2,5 @@
 
 return [
     'title' => 'Education',
+    'present' => 'Present',
 ];

@@ -1,7 +1,7 @@
 <section id="skills" class="section-glass container" data-aos="fade-up">
     <h2 class="text-center mb-5">{{ __('skills.title') }}</h2>
 
-    <div class="row text-center g-4">
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-4 justify-content-center">
         @php
             $skills = [
                 ['name' => 'HTML5', 'icon' => 'devicon-html5-plain colored'],
@@ -30,10 +30,10 @@
         @endphp
 
         @foreach($skills as $skill)
-            <div class="col-6 col-md-4 col-lg-3">
-                <div class="skill-card h-100 text-center p-4">
-                    <i class="{{ $skill['icon'] }} display-5 mb-3"></i>
-                    <p class="mb-0">{{ $skill['name'] }}</p>
+            <div class="col">
+                <div class="skill-card h-100 text-center p-3">
+                    <i class="{{ $skill['icon'] }} display-6 mb-2"></i>
+                    <p class="mb-0 small">{{ $skill['name'] }}</p>
                 </div>
             </div>
         @endforeach
