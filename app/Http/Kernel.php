@@ -20,18 +20,11 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \App\Http\Middleware\SetLocale::class, // Debe ir lo más arriba posible (opcional pero recomendado)
-
+            \App\Http\Middleware\SetLocale::class,
             \Illuminate\Cookie\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
-
-            // Solo si usas autenticación con sesión o login
-            // \Illuminate\Session\Middleware\AuthenticateSession::class,
-
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Illuminate\Routing\Middleware\ThrottleRequests::class,
         ],
 
         'api' => [

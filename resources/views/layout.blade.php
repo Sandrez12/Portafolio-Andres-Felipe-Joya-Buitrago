@@ -160,6 +160,7 @@
     </style>
 </head>
 <body>
+<p>Idioma actual: {{ app()->getLocale() }}</p>
 
 <button id="toggle-sidebar" class="btn btn-light position-fixed top-0 start-0 m-2 d-none d-md-block" style="z-index: 1060;">
     <i class="bi bi-list fs-3 text-dark"></i>
@@ -326,10 +327,65 @@
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script>
-    particlesJS.load('particles-js', '{{ asset('particles.json') }}', function() {
-        console.log('Particles.js loaded');
+    particlesJS('particles-js', {
+        "particles": {
+            "number": {
+                "value": 100,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#ffffff"
+            },
+            "shape": {
+                "type": "circle"
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false
+            },
+            "size": {
+                "value": 3,
+                "random": true
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 2,
+                "direction": "none",
+                "out_mode": "out"
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": false
+                },
+                "resize": true
+            },
+            "modes": {
+                "repulse": {
+                    "distance": 100
+                }
+            }
+        },
+        "retina_detect": true
     });
 </script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
