@@ -160,7 +160,6 @@
     </style>
 </head>
 <body>
-<p>Idioma actual: {{ app()->getLocale() }}</p>
 
 <button id="toggle-sidebar" class="btn btn-light position-fixed top-0 start-0 m-2 d-none d-md-block" style="z-index: 1060;">
     <i class="bi bi-list fs-3 text-dark"></i>

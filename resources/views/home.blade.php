@@ -129,28 +129,12 @@
     </section>
 </div>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script>
-    particlesJS.load('particles-js', '{{ asset("particles.json") }}', function() {
-        console.log('particles.js loaded');
-    });
-</script>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-<script>
-    const lightbox = GLightbox({ selector: '.glightbox' });
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 <script>
     particlesJS('particles-js', {
         "particles": {
             "number": {
-                "value": 100,
+                "value": 80,
                 "density": {
                     "enable": true,
                     "value_area": 800
@@ -163,8 +147,7 @@
                 "type": "circle"
             },
             "opacity": {
-                "value": 0.5,
-                "random": false
+                "value": 0.4
             },
             "size": {
                 "value": 3,
@@ -174,27 +157,22 @@
                 "enable": true,
                 "distance": 150,
                 "color": "#ffffff",
-                "opacity": 0.4,
+                "opacity": 0.3,
                 "width": 1
             },
             "move": {
                 "enable": true,
-                "speed": 2,
+                "speed": 1.5,
                 "direction": "none",
                 "out_mode": "out"
             }
         },
         "interactivity": {
-            "detect_on": "canvas",
             "events": {
                 "onhover": {
                     "enable": true,
                     "mode": "repulse"
-                },
-                "onclick": {
-                    "enable": false
-                },
-                "resize": true
+                }
             },
             "modes": {
                 "repulse": {
@@ -204,6 +182,15 @@
         },
         "retina_detect": true
     });
+</script>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+    const lightbox = GLightbox({ selector: '.glightbox' });
 </script>
 
 </body>
