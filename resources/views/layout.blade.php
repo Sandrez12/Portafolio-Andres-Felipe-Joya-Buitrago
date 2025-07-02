@@ -5,7 +5,7 @@
     <title>Andrés Felipe Joya Buitrago</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="{{ asset('images/Logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('images/logo.jpg') }}" type="image/png">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
