@@ -178,7 +178,7 @@
         <!-- Logo -->
         <div class="text-center">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo de Andrés Joya"
+                <img src="{{ asset('images/logo.jpg') }}" alt="Logo de Andrés Joya"
                     class="rounded-circle border border-3 shadow mb-3"
                     style="max-width: 100px; border-color: #6c63ff;">
             </a>
