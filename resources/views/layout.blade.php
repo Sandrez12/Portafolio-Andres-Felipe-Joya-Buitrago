@@ -179,7 +179,7 @@
         <div class="text-center">
             <a href="{{ route('home') }}">
                 <img src="{{ asset('images/logo.jpg') }}" alt="Logo de Andrés Joya"
-                    class="rounded-circle border border-3 shadow mb-3"
+                    class="rounded-circle dborder-3 shadow mb-3"
                     style="max-width: 100px; border-color: #6c63ff;">
             </a>
         </div>
@@ -313,13 +313,6 @@
 </main>
 
 <!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script>
-    particlesJS.load('particles-js', '{{ asset("particles.json") }}', function() {
-        console.log('particles.js loaded');
-    });
-</script>
-
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
