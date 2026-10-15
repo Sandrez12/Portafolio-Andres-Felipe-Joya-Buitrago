@@ -2,30 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class PortafolioController extends Controller
 {
-    public function home()
+    public function home(): View
     {
-        return view('home');
-    }
-
-    public function portfolio()
-    {
-        return view('portfolio');
-    }
-    public function sendContact(Request $request)
-    {
-        // Validar
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'message' => 'required',
+        return view('home', [
+            'skills' => config('portfolio.skills'),
+            'projects' => config('portfolio.projects'),
         ]);
-
-        // Aquí puedes enviar correo, guardar en base de datos, etc.
-        return back()->with('success', '¡Mensaje enviado con éxito!');
     }
 
+    public function locale(Request $request, string $lang): RedirectResponse
+    {
+        $request->session()->put('locale', $lang);
+
+        return back(fallback: route('home'));
+    }
 }

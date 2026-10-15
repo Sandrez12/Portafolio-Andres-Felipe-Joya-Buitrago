@@ -1,36 +1,31 @@
-# Usa una imagen base de PHP con extensiones requeridas
-FROM php:8.2-fpm
-
-# Instala dependencias del sistema
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpng-dev \
-    libjpeg-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip \
-    unzip \
-    git \
-    curl \
-    libzip-dev \
-    libpq-dev \
-    && docker-php-ext-install pdo pdo_mysql zip
-
-# Instala Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-
-# Copia el código del proyecto
-WORKDIR /var/www
+# ---- Dependencias de PHP (sin paquetes de desarrollo) ----
+FROM composer:2 AS vendor
+WORKDIR /app
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist --no-interaction --ignore-platform-reqs
 COPY . .
+RUN composer dump-autoload --no-dev --optimize --no-interaction --ignore-platform-reqs
 
-# Instala dependencias de Laravel
-RUN composer install --optimize-autoloader --no-dev
+# ---- Imagen final ----
+FROM php:8.4-apache
+ENV APP_ENV=production \
+    APP_DEBUG=false \
+    LOG_CHANNEL=stderr \
+    SESSION_DRIVER=file \
+    CACHE_STORE=file \
+    QUEUE_CONNECTION=sync
 
-# Establece permisos
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+RUN a2enmod rewrite headers \
+    && sed -ri 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf /etc/apache2/apache2.conf \
+    && sed -ri 's!AllowOverride None!AllowOverride All!g' /etc/apache2/apache2.conf
 
-# Puerto de Laravel
-EXPOSE 8000
+WORKDIR /var/www/html
+COPY --from=vendor /app ./
+COPY docker/start.sh /usr/local/bin/start
+RUN chmod +x /usr/local/bin/start \
+    && mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache \
+    && chown -R www-data:www-data storage bootstrap/cache
 
-# Comando para ejecutar Laravel
-CMD php artisan serve --host=0.0.0.0 --port=8000
+EXPOSE 80
+HEALTHCHECK --interval=30s --timeout=5s CMD curl -fs "http://localhost:${PORT:-80}/up" || exit 1
+CMD ["start"]

@@ -1,24 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Mail;
-use App\Http\Controllers\PortafolioController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PortafolioController;
+use Illuminate\Support\Facades\Route;
 
-// Página principal (home)
 Route::get('/', [PortafolioController::class, 'home'])->name('home');
 
-// Ruta para la sección de portafolio
-Route::get('/portafolio', [PortafolioController::class, 'portfolio'])->name('portfolio');
+// Enlace antiguo: ahora todo el portafolio vive en la página principal.
+Route::redirect('/portafolio', '/#projects')->name('portfolio');
 
-// Ruta para enviar el formulario de contacto
-Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
-Route::post('/contact/send', [App\Http\Controllers\ContactController::class, 'send'])->name('contact.send');
+Route::get('/lang/{lang}', [PortafolioController::class, 'locale'])
+    ->whereIn('lang', config('portfolio.locales'))
+    ->name('lang.switch');
 
-Route::get('/lang/{lang}', function ($lang) {
-    if (in_array($lang, ['en', 'es'])) {
-        session(['locale' => $lang]);
-        app()->setLocale($lang);
-    }
-    return redirect()->back();
-})->name('lang.switch');
+Route::post('/contact', [ContactController::class, 'send'])
+    ->middleware('throttle:5,1')
+    ->name('contact.send');
