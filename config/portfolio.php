@@ -21,7 +21,7 @@ return [
     'projects' => [
         ['key' => 'lsc', 'mark' => 'LSC', 'tech' => ['Python', 'PyTorch', 'MediaPipe', 'React Native', 'AWS'], 'repo' => 'Sandrez12/LSC', 'demo' => null, 'image' => null],
         ['key' => 'gestor_escolar', 'mark' => 'GE', 'tech' => ['Laravel', 'PostgreSQL', 'Docker', 'Tailwind'], 'repo' => 'Sandrez12/GestorEscolarBUAP', 'demo' => null, 'image' => null],
-        ['key' => 'moodjournal', 'mark' => 'MJ', 'tech' => ['React', 'TypeScript', 'Supabase', 'Tailwind'], 'repo' => 'Sandrez12/MoodJournal', 'demo' => null, 'image' => null],
+        ['key' => 'moodjournal', 'mark' => 'MJ', 'tech' => ['React', 'TypeScript', 'Supabase', 'Tailwind'], 'repo' => 'Sandrez12/MoodJournal', 'demo' => 'https://moodjournal-theta.vercel.app', 'image' => null],
         ['key' => 'genetico', 'mark' => 'AG', 'tech' => ['JavaScript', 'Python', 'NumPy'], 'repo' => 'Sandrez12/Algoritmo-gen-tico-aplicado-a-un-portafolio-de-inversi-n', 'demo' => 'https://sandrez12.github.io/Algoritmo-gen-tico-aplicado-a-un-portafolio-de-inversi-n/', 'image' => null],
         ['key' => 'inventario', 'mark' => 'INV', 'tech' => ['Laravel', 'Livewire', 'MySQL'], 'repo' => 'Sandrez12/Gestor-de-Inventario', 'demo' => null, 'image' => 'images/projects/inventario1.png'],
         ['key' => 'conceptos', 'mark' => '{ }', 'tech' => ['Laravel', 'Docker'], 'repo' => 'Sandrez12/Conceptos-', 'demo' => null, 'image' => null],
